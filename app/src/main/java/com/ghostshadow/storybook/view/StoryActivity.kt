@@ -63,7 +63,8 @@ class StoryActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = tts!!.setLanguage(Locale.ENGLISH)
+            val defaltLocale = Locale.getDefault()
+            val result = tts!!.setLanguage(defaltLocale)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS", "The Specific lang is not supported!")
             }
